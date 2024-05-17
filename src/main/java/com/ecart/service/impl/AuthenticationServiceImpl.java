@@ -71,6 +71,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         return null;
     }
 
+    // Todo: Complete Reset process
     public String resetPasswordToken(String email){
         User user = userRepository.findByEmail(email).orElseThrow(() -> new UsernameNotFoundException("User Not Found"));
         var jwt = jwtService.generateToken(user);
