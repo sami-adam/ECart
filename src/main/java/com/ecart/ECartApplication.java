@@ -26,8 +26,7 @@ public class ECartApplication implements CommandLineRunner {
 
 			user.setEmail("admin@ecart.com");
 			user.setUsername("admin");
-			user.setFirstName("Admin");
-			user.setLastName("Admin");
+			user.setName("Admin");
 			user.setRole(Role.ADMIN);
 			user.setPassword(new BCryptPasswordEncoder().encode("qLUftio3"));
 			userRepository.save(user);

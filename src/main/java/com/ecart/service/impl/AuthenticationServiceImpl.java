@@ -29,8 +29,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     public User signUp(SignUpDTO signUpDTO){
         User user = new User();
         user.setEmail(signUpDTO.getEmail());
-        user.setFirstName(signUpDTO.getFirstName());
-        user.setLastName(signUpDTO.getLastName());
+        user.setName(signUpDTO.getName());
         user.setUsername(signUpDTO.getUsername());
         user.setRole(Role.USER);
         user.setPassword(passwordEncoder.encode(signUpDTO.getPassword()));
@@ -71,4 +70,12 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         }
         return null;
     }
+
+    public String resetPasswordToken(String email){
+        User user = userRepository.findByEmail(email).orElseThrow(() -> new UsernameNotFoundException("User Not Found"));
+        var jwt = jwtService.generateToken(user);
+        return jwt;
+    }
+
+
 }
