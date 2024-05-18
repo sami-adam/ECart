@@ -1,9 +1,11 @@
 package com.ecart.entity;
 
 import jakarta.persistence.*;
+import lombok.RequiredArgsConstructor;
 
 @Entity
 @Table(name = "ratings")
+@RequiredArgsConstructor
 public class Rating {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
