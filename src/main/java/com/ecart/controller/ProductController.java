@@ -38,9 +38,9 @@ public class ProductController {
         return ResponseEntity.ok(productService.addProduct(productDTO));
     }
 
-    @GetMapping("/search/{subTitle}")
-    public ResponseEntity<List<ProductDTO>> findBySubTitle(@PathVariable String subTitle){
-        return ResponseEntity.ok(productService.findBySubTitle(subTitle));
+    @GetMapping("/search/{name}")
+    public ResponseEntity<List<ProductDTO>> search(@PathVariable String name){
+        return ResponseEntity.ok(productService.search(name));
     }
 
 }

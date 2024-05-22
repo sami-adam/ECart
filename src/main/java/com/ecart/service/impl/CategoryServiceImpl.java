@@ -6,8 +6,10 @@ import com.ecart.repository.CategoryRepository;
 import com.ecart.service.CategoryService;
 import jakarta.validation.constraints.NotNull;
 import org.modelmapper.ModelMapper;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -37,6 +39,11 @@ public class CategoryServiceImpl implements CategoryService {
         }
         return "Updated Successfully";
     }
+
+//    @Scheduled(fixedRate = 1000 * 60 * 30)
+//    public void scheduled(){
+//        System.out.println("Scheduled Action" + new Date(System.currentTimeMillis()));
+//    }
 
 
 }

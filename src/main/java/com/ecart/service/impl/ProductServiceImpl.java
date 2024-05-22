@@ -57,8 +57,8 @@ public class ProductServiceImpl implements ProductService {
         return productDTO;
     }
 
-    public List<ProductDTO> findBySubTitle(String subtitle){
-        List<Product> products = productRepository.findBySubTitle(subtitle).stream().toList();
+    public List<ProductDTO> search(String name){
+        List<Product> products = productRepository.search(name).stream().toList();
         List<ProductDTO> productDTOS = new ArrayList<>();
         for(Product product: products){
             productDTOS.add(mapper.map(product, ProductDTO.class));
