@@ -1,6 +1,7 @@
 package com.ecart.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -23,6 +24,7 @@ public class User implements UserDetails {
     @Column(unique = true, nullable = false)
     private String username;
     @Column(unique = true, nullable = false)
+    @Email
     private String email;
     private String password;
 

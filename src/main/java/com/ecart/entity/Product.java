@@ -1,10 +1,13 @@
 package com.ecart.entity;
 
 import jakarta.persistence.*;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 
 @Entity
 @Table(name = "products")
+@RequiredArgsConstructor
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

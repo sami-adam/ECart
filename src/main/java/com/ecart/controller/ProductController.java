@@ -2,6 +2,7 @@ package com.ecart.controller;
 
 import com.ecart.dto.ProductDTO;
 import com.ecart.service.impl.ProductServiceImpl;
+import org.hibernate.annotations.Parameter;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -36,4 +37,10 @@ public class ProductController {
     public ResponseEntity<ProductDTO> addProduct(@RequestBody ProductDTO productDTO){
         return ResponseEntity.ok(productService.addProduct(productDTO));
     }
+
+    @GetMapping("/search/{subTitle}")
+    public ResponseEntity<List<ProductDTO>> findBySubTitle(@PathVariable String subTitle){
+        return ResponseEntity.ok(productService.findBySubTitle(subTitle));
+    }
+
 }

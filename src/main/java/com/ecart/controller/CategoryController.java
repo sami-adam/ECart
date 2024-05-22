@@ -1,5 +1,6 @@
 package com.ecart.controller;
 
+import com.ecart.dto.CategoryDTO;
 import com.ecart.entity.Category;
 import com.ecart.service.CategoryService;
 import com.ecart.service.impl.CategoryServiceImpl;
@@ -18,12 +19,17 @@ public class CategoryController {
     }
 
     @GetMapping("/categories")
-    public ResponseEntity<List<Category>> getAllCategories(){
+    public ResponseEntity<List<CategoryDTO>> getAllCategories(){
         return ResponseEntity.ok(categoryService.getAllCategories());
     }
 
     @PostMapping("/add")
-    public ResponseEntity<Category> addCategory(@RequestBody Category category){
-        return ResponseEntity.ok(categoryService.addCategory(category));
+    public ResponseEntity<CategoryDTO> addCategory(@RequestBody CategoryDTO categoryDTO){
+        return ResponseEntity.ok(categoryService.addCategory(categoryDTO));
+    }
+
+    @PutMapping("/update/{id}")
+    public ResponseEntity<String> updateCategory(@PathVariable Long id, @RequestBody CategoryDTO categoryDTO){
+        return ResponseEntity.ok(categoryService.updateCategory(id, categoryDTO));
     }
 }
