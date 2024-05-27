@@ -11,7 +11,7 @@
 	<groupId>com.ecart</groupId>
 	<artifactId>ECart</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>ECart</name>
 	<description>ECart Online Store</description>
 	<properties>
